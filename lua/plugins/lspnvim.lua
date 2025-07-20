@@ -4,7 +4,7 @@ return {
   { "nvim-treesitter/nvim-treesitter", opts = { ensure_installed = { "cpp" } } },
 
   -- Clangd extensions (inlay hints, AST, header switching)
-  { "p00f/clangd_extensions.nvim",     lazy = true },
+  { "p00f/clangd_extensions.nvim", lazy = true },
 
   -- Configure clangd via nvim-lspconfig
   {
@@ -15,6 +15,11 @@ return {
           -- Add a keybinding for switching between source/header
           keys = {
             { "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
+          },
+          cmd = {
+            "clangd",
+            "--query-driver=/home/jean/SW/Baremetal/arm-gcc-14.2/bin/arm-none-eabi-*",
+            "--log=verbose",
           },
           -- (Optional) custom clangd command or capabilities can be set here
           -- cmd = { "clangd", "--background-index", "--clang-tidy" },
